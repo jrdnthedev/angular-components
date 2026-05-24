@@ -9,7 +9,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 })
 export class ReactiveForm {
   readonly form = new FormGroup({
-    email: new FormControl('',[Validators.required, Validators.email,Validators.minLength(3)]),
+    email: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl('',[Validators.required, Validators.minLength(7)]),
   })
 
