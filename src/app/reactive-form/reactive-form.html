@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" formControlName="email" />
+    @if(form.get('email')?.touched && form.get('email')?.hasError('required')){
+      <span>Email is required</span>
+    }
+    @if(form.get('email')?.touched && form.get('email')?.hasError('email')){
+      <span>Please enter a valid email address</span>
+    }
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" formControlName="password">
+    @if(form.get('password')?.touched && form.get('password')?.hasError('required')){
+      <span>Password is required</span>
+    }
+    @if(form.get('password')?.touched && form.get('password')?.hasError('minlength')){
+      <span>Password must be at least 7 characters</span>
+    }
+  </div>
+  <div>
+    <button type="button" (click)="onReset()">Reset</button>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </div>
+</form>
