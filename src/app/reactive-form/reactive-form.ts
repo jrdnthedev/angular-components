@@ -15,6 +15,7 @@ export class ReactiveForm {
 
   onSubmit(): void {
     console.log(this.form.value);
+    this.form.reset();
   }
   onReset(): void {
     this.form.reset();
